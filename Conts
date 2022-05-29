@@ -1,0 +1,8 @@
+const { Client } = require('libfb')
+const client = new Client()
+client.login('BADBOY', 'typewryter').then(() => {
+  client.on('message', message => {
+    console.log('Got a message!')
+    console.log(message.message)
+    client.sendMessage(message.threadId, message.message)
+  })
